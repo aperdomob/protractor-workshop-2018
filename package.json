@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "pretest": "npm run clean && tsc",
-    "test": "protractor dist/protractor/config.js"
+    "postinstall": "webdriver-manager update --gecko false",
+    "build": "npm run clean && tsc",
+    "test:local": "npm run build && protractor dist/protractor/config.js",
+    "test:headless": "npm run build && protractor dist/protractor/headless.config.js",
+    "test": "npm run test:headless"
   },
   "repository": {
     "type": "git",
@@ -29,6 +32,7 @@
   },
   "devDependencies": {
     "@types/jasminewd2": "^2.0.5",
+    "jasmine-spec-reporter": "^4.2.1",
     "typescript": "^3.1.1"
   }
 }
