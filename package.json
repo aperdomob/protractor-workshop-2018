@@ -1,0 +1,41 @@
+{
+  "name": "protractor-workshop-2018",
+  "version": "1.0.0",
+  "description": "This is a Workshop about Protractor",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "webdriver-manager update --gecko false",
+    "lint": "tslint --project tsconfig.json protractor/**/*.ts test/**/*.ts src/**/*.ts",
+    "clean": "rm -rf dist",
+    "build": "npm run lint && npm run clean && tsc",
+    "test:local": "npm run build && protractor dist/protractor/config.js",
+    "test:headless": "npm run build && protractor dist/protractor/headless.config.js",
+    "test": "npm run test:headless"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aperdomob/protractor-workshop-2018.git"
+  },
+  "keywords": [
+    "ui-testing",
+    "dojo",
+    "practice",
+    "protractor"
+  ],
+  "author": "Alejandro Perdomo <aperdomobo@gmail.com> (http://github.com/aperdomob)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aperdomob/protractor-workshop-2018/issues"
+  },
+  "homepage": "https://github.com/aperdomob/protractor-workshop-2018#readme",
+  "dependencies": {
+    "protractor": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/jasminewd2": "^2.0.5",
+    "jasmine-spec-reporter": "^4.2.1",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "typescript": "^3.1.1"
+  }
+}
